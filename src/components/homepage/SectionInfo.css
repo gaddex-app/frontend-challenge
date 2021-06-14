@@ -1,0 +1,12 @@
+.sectionInfo{ /* elements from section header */
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    height: 80px;
+    align-items: flex-end;
+}
+.bottomBorderLine { /* print line section header */
+    border-bottom: 1px solid #b0a9a9 !important;
+    width: 100%;
+    margin-bottom: 9px;
+}

@@ -1,9 +1,10 @@
 .navbar{
-    background-color: #060b26;
+    background-color: #5752D9;
     height: 80px;
     display: flex;
     justify-content: start;
     align-items: center; 
+    z-index: 1;
 }
 
 .menu-bars{
@@ -13,7 +14,7 @@
 }
 
 .nav-menu {
-    background-color: #060b26;
+    background-color: #5752D9;
     width: 250px;
     height: 100vh;
     display: flex;
@@ -22,6 +23,7 @@
     top: 0;
     left: -100%;
     transition:850ms;
+    z-index: 101;
 }
 
 .nav-menu.active {
@@ -31,12 +33,14 @@
 
 .nav-text {
     display:flex;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
     padding: 8px 16px 8px 16px;
     list-style: none;
     height: 60px;
+    margin-top:30px;
 }
+
 
 .nav-text a {
     text-decoration: none;

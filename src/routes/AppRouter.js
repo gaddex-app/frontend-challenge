@@ -1,19 +1,19 @@
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 //Views
-import SearchPage from '../views/SearchPage';
 import HomePage from '../views/HomePage';
+import NotFound from '../views/NotFound';
 //Components
-import Navbar from '../components/Navbar.js';
+import Navbar from '../components/sidebar/Sidebar';
 export default function AppRouter (){
     return(
         <Router>
           <Navbar />  
           <Switch>  
-            <Route path="/search">
-               <SearchPage />
-            </Route>
             <Route exact path="/">
                <HomePage />
+            </Route>
+            <Route path="*"> 
+               <NotFound />
             </Route>
           </Switch>
         </Router>
