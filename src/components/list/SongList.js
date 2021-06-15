@@ -1,8 +1,7 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
 import Carousel from 'react-elastic-carousel';
-import SongCard from '../cards/SongCard'; 
+import Card from '../cards/Card'; 
 
 const SongList = (props) => {
     const {singles} = props;
@@ -18,8 +17,8 @@ const SongList = (props) => {
       <Carousel breakPoints={breakpoints} pagination={false}>
           {singles.map(
             (singles, idx) =>   
-            <a href={singles.external_urls.spotify} style={{textDecoration: 'none'}} key={idx}>
-              <SongCard singles={singles} />
+            <a href={ singles.external_urls.spotify } style={{textDecoration: 'none'}} key={ idx }>
+              <Card id={ singles.id } name={ singles.name } image={ singles.images[0].url } />
             </a>  
           )}
       </Carousel>

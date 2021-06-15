@@ -20,9 +20,53 @@
     align-items: center;
 }
 
+.flex {
+    display: flex;
+    align-items: center;
+}
+
 #playerCurrSong{
     margin-left: 20px;
     font-weight: 600;
     margin-bottom: 0;
 }
 
+#rightBtns{
+    width: 216px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bottomBorderLinePlayer { /* print line section header */
+    border-bottom: 1px solid #b0a9a9 !important;
+    width: 100%;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.show {
+    display: flex !important;
+    align-items: center !important;
+}
+
+#dots{
+    display: none;
+}
+
+@media (max-width: 600px) {
+
+    .show {
+        display: none !important;
+    }
+
+    #dots{
+        display: flex;
+    }
+    
+    .bottomBorderLinePlayer { /* print line section header */
+        border-bottom: 1px solid #b0a9a9 !important;
+        width: 100%;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
