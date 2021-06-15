@@ -4,6 +4,7 @@ import { Credentials } from '../../credentials/Credentials';
 import SongList from '../../components/list/SongList';
 import CategoriesList from '../../components/list/CategoriesList';   
 import SectionInfo from '../../components/homepage/SectionInfo';
+import {getNewReleased, getFeatured, getCategories} from './ApiCalls';
 
 const SongsData  = () => {
     const spotify = Credentials();
@@ -23,21 +24,11 @@ const SongsData  = () => {
             method: 'POST'
         })
         .then(tokenResponse => {
+            console.log(tokenResponse.data.access_token);
             setToken(tokenResponse.data.access_token);
             
             axios.all([
-                axios.get(`https://api.spotify.com/v1/browse/new-releases`, {
-                    method: 'GET',
-                    headers: { 'Authorization' : 'Bearer ' + tokenResponse.data.access_token}
-                }), 
-                axios.get(`https://api.spotify.com/v1/browse/featured-playlists`, {
-                    method: 'GET',
-                    headers: { 'Authorization' : 'Bearer ' + tokenResponse.data.access_token}
-                }),
-                axios.get(`https://api.spotify.com/v1/browse/categories`, {
-                    method: 'GET',
-                    headers: { 'Authorization' : 'Bearer ' + tokenResponse.data.access_token}
-                })
+                getNewReleased(token), getFeatured(token), getCategories (token)
               ])
               .then(axios.spread((newReleases, featuredPlaylists, categories) => {
                 // output of req.
