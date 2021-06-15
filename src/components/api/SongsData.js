@@ -23,7 +23,6 @@ const SongsData  = () => {
             method: 'POST'
         })
         .then(tokenResponse => {
-            console.log(tokenResponse.data.access_token);
             setToken(tokenResponse.data.access_token);
             
             axios.all([
@@ -43,11 +42,8 @@ const SongsData  = () => {
               .then(axios.spread((newReleases, featuredPlaylists, categories) => {
                 // output of req.
                 setSingles(newReleases.data.albums.items);
-                console.log(newReleases.data.albums.items);
                 setFeaturedPlayL(featuredPlaylists.data.playlists.items);
-                console.log('featuredPlaylists',featuredPlaylists.data.playlists.items);
-               setCategories(categories.data.categories.items);
-                console.log('categories',categories.data.categories.items);
+                setCategories(categories.data.categories.items);
               }));
             
         })

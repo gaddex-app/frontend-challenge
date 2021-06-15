@@ -16,7 +16,7 @@ const SongList = (props) => {
     return (
   <div>
       <Carousel breakPoints={breakpoints} pagination={false}>
-      {singles.map(
+          {singles.map(
             (singles, idx) =>   
             <a href={singles.external_urls.spotify} style={{textDecoration: 'none'}} key={idx}>
               <SongCard singles={singles} />

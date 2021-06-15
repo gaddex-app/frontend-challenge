@@ -3,3 +3,8 @@
     max-height: 320px;
 }
 
+@media (max-width: 600px) {
+    .banner {
+      height: 96px;
+    }
+  }

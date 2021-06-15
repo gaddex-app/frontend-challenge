@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { AiOutlineClose } from 'react-icons/ai';
 import { FaBars } from  'react-icons/fa';
 import { IconContext } from 'react-icons';
-
+import UserImg from '../../assets/userSvg.svg';
 import {SideBarData} from './SideBarData';
 
 import './Sidebar.css';
@@ -27,6 +27,12 @@ export default function Sidebar(){
                             <AiOutlineClose />
                         </Link>   
                     </li>      
+                    <li>
+                        <div id="imgDiv">
+                            <img className="userImg" src={UserImg} />
+                            <p id="userTxt" className="mt-4">Bob Smith</p>
+                        </div>
+                    </li>
                     {SideBarData.map((item, index) => {
                         return (
                             <li key={index} className={item.cName}>
