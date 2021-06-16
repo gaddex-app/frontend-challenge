@@ -1,41 +1,70 @@
-# Tech-Frontend-Challenge
+# Getting Started with Create React App
 
-# First Step
-- Choose one of this technologies to develop the test challenge:
-  - Angular X
-  - React
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-# To Keep in mind ✨
-  - Use a good architecture 
-  - Add some tests to check how do you work with that
-  - Keep in mind SOLID principies
-  - Fork this project and upload your test to Github, to check how do you work with Git
-  - Link to the deployed Demo, use your favorite static site hosting platform (surge, github-pages, now, ...)
-  - The app should run on any computer by running npm install , npm test and have a demo online.
-  - We'll evaluate the exercise by looking commits and test passed.
+## Available Scripts
 
-# Requirements 📖
-- Fetch and display *Released This Week* songs
-  - Use the API path `new-releases`
-- Fetch and display *Featured Playlists*
-  - Use the API path `featured-playlists`
-- Fetch and display *Browse* genres
-  - Use the API path `categories`
+In the project directory, you can run:
 
-# Think about 💡
-- Taking a look at the Spotify API documentation
-- Do you resolve each API request one after the other or in parallel?
-- Where do you make the API requests?
+### `yarn start`
 
-# Resources API
-- https://developer.spotify.com/documentation/web-api/
-- You can choos to use a library o make the request by your own
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-# Screenshots 🌄
-You can choose you favorite design and develop a beautifull UI/UX, here you have one example but you can choose other.
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-# This project should be production ready. 
+### `yarn test`
 
-![screenshot-desktop](https://puu.sh/GwPLE/3be580156a.png)
-![screenshot-mobile](https://puu.sh/GwPLS/0bcb566d23.png)
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
+### `yarn build`
+
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `yarn eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `yarn build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
