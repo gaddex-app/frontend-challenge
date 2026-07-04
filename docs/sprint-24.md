@@ -277,12 +277,113 @@ You are free to choose any public Weather API.
 
 We recommend **Open-Meteo**, as it provides all the data required for this challenge without requiring an API key.
 
-Useful documentation:
+Official documentation: https://open-meteo.com/en/docs
 
-- Forecast API
-- Geocoding API
+---
 
-Please refer to the official documentation to determine the endpoints and parameters required for your implementation.
+## Geocoding API
+
+Used to search cities by name and get their coordinates.
+
+**Base URL:** `https://geocoding-api.open-meteo.com/v1/search`
+
+| Parameter  | Type   | Description                                        |
+| ---------- | ------ | -------------------------------------------------- |
+| `name`     | string | City name to search (e.g. `Barcelona`)             |
+| `count`    | number | Max number of results (e.g. `5`)                   |
+| `language` | string | Language for the results (e.g. `en`)               |
+
+**Example request:**
+
+```
+GET https://geocoding-api.open-meteo.com/v1/search?name=Barcelona&count=5&language=en
+```
+
+**Example response (simplified):**
+
+```json
+{
+  "results": [
+    {
+      "id": 3128760,
+      "name": "Barcelona",
+      "country": "Spain",
+      "country_code": "ES",
+      "latitude": 41.38879,
+      "longitude": 2.15899
+    }
+  ]
+}
+```
+
+Use `latitude` and `longitude` from this response as input for the Forecast API.
+
+---
+
+## Forecast API
+
+Used to retrieve current conditions and forecasts for a given location.
+
+**Base URL:** `https://api.open-meteo.com/v1/forecast`
+
+| Parameter       | Type   | Description                                                                          |
+| --------------- | ------ | ------------------------------------------------------------------------------------ |
+| `latitude`      | number | Latitude from Geocoding API                                                          |
+| `longitude`     | number | Longitude from Geocoding API                                                         |
+| `current`       | string | Comma-separated current weather variables                                            |
+| `hourly`        | string | Comma-separated hourly forecast variables                                            |
+| `daily`         | string | Comma-separated daily forecast variables                                             |
+| `forecast_days` | number | Days ahead to forecast (max `16`)                                                    |
+| `past_days`     | number | Past days to include — combine with `forecast_days` to cover 30 days                |
+| `timezone`      | string | Use `auto` to detect from location                                                   |
+
+**Suggested variables for this challenge:**
+
+- `current`: `temperature_2m`, `apparent_temperature`, `relative_humidity_2m`, `surface_pressure`, `wind_speed_10m`, `weather_code`
+- `hourly`: `temperature_2m`, `weather_code`
+- `daily`: `temperature_2m_max`, `temperature_2m_min`, `weather_code`
+
+**Example request:**
+
+```
+GET https://api.open-meteo.com/v1/forecast
+  ?latitude=41.38879
+  &longitude=2.15899
+  &current=temperature_2m,apparent_temperature,relative_humidity_2m,surface_pressure,wind_speed_10m,weather_code
+  &hourly=temperature_2m,weather_code
+  &daily=temperature_2m_max,temperature_2m_min,weather_code
+  &forecast_days=16
+  &past_days=14
+  &timezone=auto
+```
+
+**Example response (simplified):**
+
+```json
+{
+  "current": {
+    "temperature_2m": 22.4,
+    "apparent_temperature": 21.1,
+    "relative_humidity_2m": 65,
+    "surface_pressure": 1015.2,
+    "wind_speed_10m": 12.3,
+    "weather_code": 3
+  },
+  "hourly": {
+    "time": ["2025-06-01T00:00", "2025-06-01T01:00"],
+    "temperature_2m": [18.2, 17.8],
+    "weather_code": [1, 1]
+  },
+  "daily": {
+    "time": ["2025-06-01", "2025-06-02"],
+    "temperature_2m_max": [24.1, 23.5],
+    "temperature_2m_min": [15.2, 14.8],
+    "weather_code": [3, 61]
+  }
+}
+```
+
+**Weather codes** follow the WMO standard. You can find the full list in the Open-Meteo docs under _"Weather variable documentation"_. Implement a mapping from code to label and icon (e.g. `0` → Clear sky, `61` → Rain, `71` → Snow).
 
 ---
 
